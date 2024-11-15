@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                      // Specify ECMAScript target version
+    "lib": ["DOM", "DOM.Iterable", "ES6"], // Include libraries needed for React
+    "allowJs": true,                     // Allow JavaScript files
+    "skipLibCheck": true,                // Skip type checking for node_modules
+    "strict": true,                      // Enable strict type-checking
+    "forceConsistentCasingInFileNames": true, // File name case sensitivity
+    "esModuleInterop": true,             // Allow default imports from CommonJS modules
+    "module": "ESNext",                  // Use ES modules
+    "moduleResolution": "Node",          // Resolve modules like Node.js
+    "resolveJsonModule": true,           // Allow importing JSON files
+    "isolatedModules": true,             // Required for React projects
+    "jsx": "react-jsx"                   // Use the modern React JSX transform
+  },
+  "include": ["src"],                    // Include files in the src directory
+  "exclude": ["node_modules", "build"]   // Exclude these directories
+}
