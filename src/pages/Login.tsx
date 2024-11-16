@@ -1,7 +1,7 @@
 import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { auth } from "../services/firebase";
 
@@ -28,16 +28,66 @@ function Login() {
         }
     }
     return (
-        <div>
-              <form onSubmit={handleLogin}>
-                <label>Email:</label>
-                <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required/>
+        <div className="flex min-h-screen items-center justify-center bg-secondary px-6">
+            <div className="w-full max-w-md p-8 rounded-lg bg-white shadow-md">
+                <h2 className="text-2xl font-semibold text-heading text-center">Welcome Back</h2>
+                <p className="mt-2 text-sm text-gray-700 text-center">
+                    Sign in to your account to continue.
+                </p>
 
-                <label>Password</label>
-                <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required/>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+                <form onSubmit={handleLogin} className="mt-6 space-y-5">
+                    <div>
+                        <label
+                            htmlFor="email"
+                            className="block text-sm font-medium text-heading"
+                        >
+                            Email:
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-gray-700 focus:border-secondary focus:ring-secondary"
+                        />
+                    </div>
+
+                    <div>
+                        <label
+                            htmlFor="password"
+                            className="block text-sm font-medium text-heading"
+                        >
+                            Password:
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-gray-700 focus:border-secondary focus:ring-secondary"
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="w-full rounded-md bg-primary py-2 text-white hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
+                    >
+                        Login
+                    </button>
+                </form>
+
+                <div className="mt-4 text-center">
+                    <p className="text-sm text-gray-700">
+                        Don't have an account?{' '}
+                        <Link to={"/register"} title="Go to register" className="font-medium text-primary hover:underline">
+                            Register
+                        </Link>
+                    </p>
+                </div>
+            </div>
+    </div>
     );
   }
   

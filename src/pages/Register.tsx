@@ -30,16 +30,56 @@ function Register() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleRegister}>
-                <label>Email:</label>
-                <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required/>
+        <div className="flex min-h-screen items-center justify-center bg-secondary px-6">
+            <div className="w-full max-w-md p-8 rounded-lg bg-white shadow-md">
+                <h2 className="text-2xl font-semibold text-heading text-center">Create an Account</h2>
+            
+                <form onSubmit={handleRegister} className="mt-6 space-y-5">
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-heading">
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-gray-700 focus:border-secondary focus:ring-secondary"
+                        />
+                    </div>
 
-                <label>Password</label>
-                <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required/>
-                <button type="submit">Register</button>
-            </form>
-            <p>Already registered? Go to <Link to="/login" title="Go to login">Login</Link></p>
+                    <div>
+                        <label htmlFor="password" className="block text-sm font-medium text-heading">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-gray-700 focus:border-secondary focus:ring-secondary"
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="w-full rounded-md bg-primary py-2 text-white hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
+                    >
+                        Register
+                    </button>
+                </form>
+
+                <div className="mt-4 text-center">
+                    <p className="text-sm text-gray-700">
+                        Already registered?{' '}
+                        <Link to="/login" title="Go to login" className="font-medium text-primary hover:underline">
+                            Login
+                        </Link>
+                    </p>
+                </div>
+            </div>
         </div>
     );
   }
