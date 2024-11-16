@@ -24,10 +24,20 @@ function Home() {
   }
 
   return (
-    <div>
-      <h1 className="text-lg text-black">{`You're logged in with the following email address: ${auth.currentUser?.email}`}</h1>
+    <div className="flex items-center justify-center h-screen bg-secondary">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg text-center">
+        <h1 className="text-heading text-2xl font-bold mb-4">
+          {`You're logged in with the following email address: ${auth.currentUser?.email}`}
+        </h1>
 
-      <Button text="Logout" buttonType="button" variant="primary" onClick={handleLogout} customClassNames="w-fit px-6" />
+        <Button
+          text="Logout"
+          buttonType="button"
+          variant="primary"
+          onClick={handleLogout}
+          customClassNames="w-fit px-6 mt-6"
+        />
+      </div>
     </div>
   )
 }
