@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <div>
-      <h1 className="text-lg text-black">Home page.</h1>
+      <h1 className="text-lg text-black">{`You're logged in with the following email address: ${auth.currentUser?.email}`}</h1>
 
       <Button text="Logout" buttonType="button" variant="primary" onClick={handleLogout} customClassNames="w-fit px-6" />
     </div>
