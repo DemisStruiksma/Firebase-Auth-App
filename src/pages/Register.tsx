@@ -4,6 +4,8 @@ import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../components/atoms/Button';
+import InputField from '../components/atoms/InputField';
+import Form from "../components/molecules/Form";
 import { auth } from '../services/firebase';
 
 function Register() {
@@ -35,37 +37,27 @@ function Register() {
             <div className="w-full max-w-md p-8 rounded-lg bg-white shadow-md">
                 <h2 className="text-2xl font-semibold text-heading text-center">Create an Account</h2>
             
-                <form onSubmit={handleRegister} className="mt-6 space-y-5">
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-heading">
-                            Email:
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            required
-                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-gray-700 focus:border-secondary focus:ring-secondary"
-                        />
-                    </div>
+                <Form onSubmit={handleRegister} classNames="mt-6 space-y-5">
+                    <InputField 
+                        value={email}
+                        type="email"
+                        id="email"
+                        label="Email:"
+                        required={true}
+                        onChange={(event) => setEmail(event.target.value)}
+                    />
 
-                    <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-heading">
-                            Password:
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)}
-                            required
-                            className="mt-1 w-full rounded-md border border-gray-300 p-2 text-gray-700 focus:border-secondary focus:ring-secondary"
-                        />
-                    </div>
+                    <InputField 
+                        value={password}
+                        type="password"
+                        id="password"
+                        label="Password:"
+                        required={true}
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
 
                     <Button text="Register" buttonType="submit" variant="primary" />
-                </form>
+                </Form>
 
                 <div className="mt-4 text-center">
                     <p className="text-sm text-gray-700">
