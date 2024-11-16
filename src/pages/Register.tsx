@@ -41,7 +41,6 @@ function Register() {
                     <InputField 
                         value={email}
                         type="email"
-                        id="email"
                         label="Email:"
                         required={true}
                         onChange={(event) => setEmail(event.target.value)}
@@ -50,7 +49,6 @@ function Register() {
                     <InputField 
                         value={password}
                         type="password"
-                        id="password"
                         label="Password:"
                         required={true}
                         onChange={(event) => setPassword(event.target.value)}
