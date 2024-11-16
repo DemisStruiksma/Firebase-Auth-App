@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Button from "../components/atoms/Button";
 import { auth } from "../services/firebase";
 
 function Login() {
@@ -70,12 +71,7 @@ function Login() {
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="w-full rounded-md bg-primary py-2 text-white hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
-                    >
-                        Login
-                    </button>
+                    <Button text="Login" buttonType="submit" variant="primary" />
                 </form>
 
                 <div className="mt-4 text-center">

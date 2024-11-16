@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Button from '../components/atoms/Button';
 import { auth } from '../services/firebase';
 
 function Register() {
@@ -37,7 +38,7 @@ function Register() {
                 <form onSubmit={handleRegister} className="mt-6 space-y-5">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-heading">
-                            Email
+                            Email:
                         </label>
                         <input
                             type="email"
@@ -51,7 +52,7 @@ function Register() {
 
                     <div>
                         <label htmlFor="password" className="block text-sm font-medium text-heading">
-                            Password
+                            Password:
                         </label>
                         <input
                             type="password"
@@ -63,12 +64,7 @@ function Register() {
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="w-full rounded-md bg-primary py-2 text-white hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
-                    >
-                        Register
-                    </button>
+                    <Button text="Register" buttonType="submit" variant="primary" />
                 </form>
 
                 <div className="mt-4 text-center">
