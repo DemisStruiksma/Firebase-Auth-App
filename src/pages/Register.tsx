@@ -11,25 +11,34 @@ import { auth } from '../services/firebase';
 function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     
     const handleRegister = async (event:FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        try {
-            // Create new user with filled in email and password after form submission.
-            await createUserWithEmailAndPassword(auth, email, password).then(() => toast.success("Account has been successfully created."));
-            // Navigate to the login page after successfully creating an account.
-            navigate("/login");
-        } catch (error: unknown) {
-            // Check if given error is a Firebase (in this case register) error, if so display error message. Otherwise throw an unknown error.
-            if (error instanceof FirebaseError) {                
-                // Use toast notification for error handling.
-                toast.error(error.message);
-            } else {
-                toast.error(`An unknown error occurred', ${error}`);
+        // Add client-side validation for Firebase password policy which is set to a minimum of 6 chars and a max of 4096.
+        if(password.length >= 6 && password.length <= 4096) {
+            setErrorMessage("");
 
+            try {
+                // Create new user with filled in email and password after form submission.
+                await createUserWithEmailAndPassword(auth, email, password).then(() => toast.success("Account has been successfully created."));
+                // Navigate to the login page after successfully creating an account.
+                navigate("/login");
+            } catch (error: unknown) {
+                // Check if given error is a Firebase (in this case register) error, if so display error message. Otherwise throw an unknown error.
+                if (error instanceof FirebaseError) {                
+                    // Use toast notification for error handling.
+                    toast.error(error.message);
+                } else {
+                    toast.error(`An unknown error occurred', ${error}`);
+
+                }
             }
+        } else {
+            setErrorMessage("Password must be 6 characters or longer.")
         }
+        
     }
 
     return (
@@ -53,6 +62,8 @@ function Register() {
                         required={true}
                         onChange={(event) => setPassword(event.target.value)}
                     />
+                    
+                    {errorMessage && <p className="text-red-600">{errorMessage}</p>}
 
                     <Button text="Register" buttonType="submit" variant="primary" customClassNames="w-full" />
                 </Form>
