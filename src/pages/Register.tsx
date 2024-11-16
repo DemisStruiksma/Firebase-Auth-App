@@ -1,7 +1,7 @@
 import { FirebaseError } from 'firebase/app';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FormEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { auth } from '../services/firebase';
 
@@ -30,7 +30,7 @@ function Register() {
     }
 
     return (
-        <main>
+        <div>
             <form onSubmit={handleRegister}>
                 <label>Email:</label>
                 <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required/>
@@ -39,7 +39,8 @@ function Register() {
                 <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required/>
                 <button type="submit">Register</button>
             </form>
-        </main>
+            <p>Already registered? Go to <Link to="/login" title="Go to login">Login</Link></p>
+        </div>
     );
   }
   
