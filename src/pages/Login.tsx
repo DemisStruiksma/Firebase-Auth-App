@@ -55,7 +55,7 @@ function Login() {
                         onChange={(event) => setPassword(event.target.value)}
                     />
 
-                    <Button text="Login" buttonType="submit" variant="primary" />
+                    <Button text="Login" buttonType="submit" variant="primary" customClassNames="w-full" />
                 </Form>
 
                 <div className="mt-4 text-center">

@@ -26,7 +26,7 @@ const Button = ({text, customClassNames, buttonType, variant, onClick}: Props) =
     return (
         <button
             type={buttonType}
-            className={`w-full rounded-md py-2 ${getButtonStyle()} ${customClassNames}`}
+            className={`rounded-md py-2 ${getButtonStyle()} ${customClassNames}`}
             onClick={onClick}
         >
             {text}
