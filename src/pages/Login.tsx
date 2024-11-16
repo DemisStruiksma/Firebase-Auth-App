@@ -33,7 +33,7 @@ function Login() {
     return (
         <div className="flex min-h-screen items-center justify-center bg-secondary px-6">
             <div className="w-full max-w-md p-8 rounded-lg bg-white shadow-md">
-                <h2 className="text-2xl font-semibold text-heading text-center">Welcome Back</h2>
+                <h2 className="text-2xl font-semibold text-body text-center">Welcome Back</h2>
                 <p className="mt-2 text-sm text-gray-700 text-center">
                     Sign in to your account to continue.
                 </p>

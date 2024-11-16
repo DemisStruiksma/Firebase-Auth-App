@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className="flex items-center justify-center h-screen bg-secondary">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg text-center">
-        <h1 className="text-heading text-2xl font-bold mb-4">
+        <h1 className="text-body text-2xl font-bold mb-4">
           {`You're logged in with the following email address: ${auth.currentUser?.email}`}
         </h1>
 

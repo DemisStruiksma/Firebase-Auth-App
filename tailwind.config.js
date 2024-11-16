@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#AA014A',    // Main CTA color
-        secondary: '#91C7C3',  // Background color
-        heading: '#461E4F',    // Heading and title/label text
+        primary: '#AA014A',   // Main CTA color
+        secondary: '#91C7C3', // Secondary CTA/Background color
+        body: '#461E4F',      // Body text color (paragraphs, labels etc)
       },
     },
   },

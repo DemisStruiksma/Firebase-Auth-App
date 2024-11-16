@@ -44,7 +44,7 @@ function Register() {
     return (
         <div className="flex min-h-screen items-center justify-center bg-secondary px-6">
             <div className="w-full max-w-md p-8 rounded-lg bg-white shadow-md">
-                <h2 className="text-2xl font-semibold text-heading text-center">Create an Account</h2>
+                <h2 className="text-2xl font-semibold text-body text-center">Create an Account</h2>
             
                 <Form onSubmit={handleRegister} classNames="mt-6 space-y-5">
                     <InputField 
