@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Firebase Auth App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web app for authentication, built using Firebase, React, TypeScript, and TailwindCSS.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
+- [Features](#features)
+- [Component Structure](#component-structure)
+  - [Atoms](#atoms)
+  - [Molecules](#molecules)
+- [Future Improvements](#future-improvements)
+- [Setup Instructions](#setup-instructions)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **User Authentication:**
+  - Login, Register, and Logout functionalities using Firebase.
+- **Route Protection:**
+  - Public routes for login and registration pages.
+  - Private route (home page) accessible only when the user is logged in.
+- **Responsive Design:**
+  - Fully responsive layouts using TailwindCSS.
+- **Toast Notifications:**
+  - Informative toast alerts for user actions like login/logout success or errors.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Component Structure
 
-### `npm run build`
+The project follows **Atomic Design Principles** for structuring components. As of now there are only atoms/molecules in this project, but this can be expanded to organisms as well.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Atoms
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Button:**
+  - Variants for primary and secondary buttons.
+- **Input Field:**
+  - Used across login and registration forms. It's made reusable so can be used for any other future form.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Molecules
 
-### `npm run eject`
+- **LoginForm:**
+  - Includes an email input field, password input field, and a submit button.
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Improvements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Password Reset Feature:**
+  - Add a "Forgot Password" page with a form for users to reset their passwords via email.
+- **Custom Error Messages:**
+  - More user-friendly error messages from Firebase errors.
+- **Accessibility:**
+  - Improve accessibility with better ARIA roles and screen-reader support.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup Instructions
 
-## Learn More
+Follow these steps to set up and run the project locally:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DemisStruiksma/Firebase-Auth-App.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+    cd FireBase-Auth-App
+   ```
+3. Navigate to the project directory:
+   ```bash
+    npm install
+   ```
+4. Set up Firebase configuration:
+- Go to your [Firebase console](https://console.firebase.google.com) and create a project.
+- Enable email/password authentication in Authentication > Sign-in method.
+- Get the Firebase configuration values from the Project settings > General tab.
+- Create a .env file in the root of your project and add the following environment variables:
+```
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id
+```
+5. Start the development server:
+   ```bash
+    npm start
+   ```
