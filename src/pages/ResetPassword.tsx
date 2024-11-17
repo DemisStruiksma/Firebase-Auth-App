@@ -8,7 +8,7 @@ import InputField from "../components/atoms/InputField";
 import Form from "../components/molecules/Form";
 import { auth } from "../services/firebase";
 
-const ResetPassword: React.FC = () => {
+const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
 

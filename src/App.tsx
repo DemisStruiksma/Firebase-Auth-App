@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { Home, Login, Register } from "./pages";
-import NotFound from "./pages/NotFound";
-import ResetPassword from "./pages/ResetPassword";
+import { Home, Login, NotFound, Register, ResetPassword } from "./pages";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
