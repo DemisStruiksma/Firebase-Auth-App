@@ -13,7 +13,7 @@ A web app for authentication, built using Firebase, React, TypeScript, and Tailw
 ## Features
 
 - **User Authentication:**
-  - Login, Register, and Logout functionalities using Firebase.
+  - Login, Register, Logout, Password reset functionalities using Firebase.
 - **Route Protection:**
   - Public routes for login and registration pages.
   - Private route (home page) accessible only when the user is logged in.
