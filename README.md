@@ -40,8 +40,6 @@ The project follows **Atomic Design Principles** for structuring components. As 
 
 ## Future Improvements
 
-- **Password Reset Feature:**
-  - Add a "Forgot Password" page with a form for users to reset their passwords via email.
 - **Custom Error Messages:**
   - More user-friendly error messages from Firebase errors.
 - **Accessibility:**
