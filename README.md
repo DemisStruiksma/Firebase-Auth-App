@@ -2,8 +2,6 @@
 
 A web app for authentication, built using Firebase, React, TypeScript, and TailwindCSS.
 
----
-
 ## Table of Contents
 - [Features](#features)
 - [Component Structure](#component-structure)
@@ -11,8 +9,6 @@ A web app for authentication, built using Firebase, React, TypeScript, and Tailw
   - [Molecules](#molecules)
 - [Future Improvements](#future-improvements)
 - [Setup Instructions](#setup-instructions)
-
----
 
 ## Features
 
@@ -25,8 +21,6 @@ A web app for authentication, built using Firebase, React, TypeScript, and Tailw
   - Fully responsive layouts using TailwindCSS.
 - **Toast Notifications:**
   - Informative toast alerts for user actions like login/logout success or errors.
-
----
 
 ## Component Structure
 
@@ -43,7 +37,6 @@ The project follows **Atomic Design Principles** for structuring components. As 
 
 - **LoginForm:**
   - Includes an email input field, password input field, and a submit button.
----
 
 ## Future Improvements
 
@@ -53,8 +46,6 @@ The project follows **Atomic Design Principles** for structuring components. As 
   - More user-friendly error messages from Firebase errors.
 - **Accessibility:**
   - Improve accessibility with better ARIA roles and screen-reader support.
-
----
 
 ## Setup Instructions
 
