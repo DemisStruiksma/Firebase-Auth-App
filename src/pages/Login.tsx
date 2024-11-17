@@ -55,6 +55,12 @@ function Login() {
                         onChange={(event) => setPassword(event.target.value)}
                     />
 
+                    <p className="text-sm text-body text-right">
+                        <Link to="/reset-password" className="text-primary underline hover:text-opacity-80">
+                            Forgot Password?
+                        </Link>
+                    </p>
+
                     <Button text="Login" buttonType="submit" variant="primary" customClassNames="w-full" />
                 </Form>
 
