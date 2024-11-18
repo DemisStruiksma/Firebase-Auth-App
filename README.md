@@ -32,11 +32,20 @@ The project follows **Atomic Design Principles** for structuring components. As 
   - Variants for primary and secondary buttons.
 - **Input Field:**
   - Used across login and registration forms. It's made reusable so can be used for any other future form.
+- **Label:**
+  - Used across login and registration forms. It's made reusable so can be used for any other future form.
+- **Spinner:**
+  - Used for loading state.
 
 ### Molecules
 
 - **LoginForm:**
   - Includes an email input field, password input field, and a submit button.
+
+### Organisms
+
+- **Card:**
+  - Used across all pages. It's made reusable so can be used for any other future page.
 
 ## Future Improvements
 
