@@ -8,6 +8,7 @@ A web app for authentication, built using Firebase, React, TypeScript, and Tailw
   - [Atoms](#atoms)
   - [Molecules](#molecules)
   - [Organisms](#organisms)
+- [Authentication Provider](#authentication-provider)
 - [Future Improvements](#future-improvements)
 - [Setup Instructions](#setup-instructions)
 
