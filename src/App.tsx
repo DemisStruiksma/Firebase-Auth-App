@@ -7,6 +7,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "./AuthProvider";
+import Spinner from "./components/atoms/Spinner";
 import { routes } from "./constants";
 import { Home, Login, NotFound, Register, ResetPassword } from "./pages";
 
@@ -14,9 +15,9 @@ function App() {
   const auth = useAuth();
 
   if (!auth.userState || auth.userState.type === "loading") {
-    // Display a loading state while checking authentication status to avoid flickering between screens
+    // Display a loading state (spinner) while checking authentication status to avoid flickering between screens
     // during the authentication check process.
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   return (
