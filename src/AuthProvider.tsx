@@ -45,11 +45,8 @@ const AuthProvider = ({ children }: Props) => {
 
   // Monitor auth state to check if user is logged in, logged out or if there's an error.
   const monitorAuthState = () => {
-    console.log("Auth state monitoring started");
-
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("User authenticated:", user);
         setUserState({ type: "success", user });
       } else {
         setUserState({ type: "error", error: new Error("No user logged in!") });
