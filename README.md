@@ -7,6 +7,7 @@ A web app for authentication, built using Firebase, React, TypeScript, and Tailw
 - [Component Structure](#component-structure)
   - [Atoms](#atoms)
   - [Molecules](#molecules)
+  - [Organisms](#organisms)
 - [Future Improvements](#future-improvements)
 - [Setup Instructions](#setup-instructions)
 
