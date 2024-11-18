@@ -53,6 +53,43 @@ The project follows **Atomic Design Principles** for structuring components. As 
 - **Custom Error Messages:**
   - More user-friendly error messages from Firebase errors.
 
+## Authentication Provider
+
+The `AuthProvider` component manages authentication state using Firebase and provides access to authentication functions via the context.
+
+### Available Functions:
+- **`login(data: { email: string; password: string }): Promise<User | Error>`** - Log in a user with email and password.
+- **`register(data: { email: string; password: string }): Promise<User | Error>`** - Register a new user with email and password.
+- **`resetPassword(data: { email: string }): Promise<Error | undefined>`** - Send a password reset email.
+- **`logout(): void`** - Log out the current user.
+
+These functions can be accessed using the `useAuth` hook in any component.
+
+Example usage:
+
+```tsx
+import { useAuth } from "./AuthProvider"; // Adjust the path as needed
+
+const MyComponent = () => {
+  const { login, register, resetPassword, userState, logout } = useAuth();
+
+  if (userState.type === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (userState.type === "error") {
+    return <div>Error: {userState.error.message}</div>;
+  }
+
+  return (
+    <div>
+      <h1>Welcome, {userState.user?.email}</h1>
+      <button onClick={logout}>Logout</button>
+    </div>
+  );
+};
+```
+
 ## Setup Instructions
 
 Follow these steps to set up and run the project locally:
