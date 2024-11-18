@@ -7,7 +7,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "./AuthProvider";
-import Spinner from "./components/atoms/Spinner";
+import { Spinner } from "./components/atoms";
 import { routes } from "./constants";
 import { Home, Login, NotFound, Register, ResetPassword } from "./pages";
 

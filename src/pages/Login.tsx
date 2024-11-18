@@ -2,10 +2,9 @@ import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../AuthProvider";
-import Button from "../components/atoms/Button";
-import InputField from "../components/atoms/InputField";
-import Form from "../components/molecules/Form";
-import Card from "../components/organisms/Card";
+import { Button, InputField } from "../components/atoms";
+import { Form } from "../components/molecules";
+import { Card } from "../components/organisms";
 import { routes } from "../constants";
 
 function Login() {

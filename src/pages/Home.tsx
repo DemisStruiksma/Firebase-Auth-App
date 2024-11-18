@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../AuthProvider";
-import Button from "../components/atoms/Button";
-import Card from "../components/organisms/Card";
+import { Button } from "../components/atoms";
+import { Card } from "../components/organisms";
 import { routes } from "../constants";
 
 function Home() {
