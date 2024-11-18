@@ -1,44 +1,36 @@
-import { FirebaseError } from 'firebase/app';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useAuth } from '../AuthProvider';
 import Button from '../components/atoms/Button';
 import InputField from '../components/atoms/InputField';
 import Form from "../components/molecules/Form";
-import { auth } from '../services/firebase';
+import { routes } from '../constants';
 
 function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
+    const auth = useAuth();
     
     const handleRegister = async (event:FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         // Add client-side validation for Firebase password policy which is set to a minimum of 6 chars and a max of 4096.
-        if(password.length >= 6 && password.length <= 4096) {
-            setErrorMessage("");
-
-            try {
-                // Create new user with filled in email and password after form submission.
-                await createUserWithEmailAndPassword(auth, email, password).then(() => toast.success("Account has been successfully created."));
-                // Navigate to the login page after successfully creating an account.
-                navigate("/login");
-            } catch (error: unknown) {
-                // Check if given error is a Firebase (in this case register) error, if so display error message. Otherwise throw an unknown error.
-                if (error instanceof FirebaseError) {                
-                    // Use toast notification for error handling.
-                    toast.error(error.message);
-                } else {
-                    toast.error(`An unknown error occurred', ${error}`);
-
-                }
-            }
-        } else {
-            setErrorMessage("Password must be 6 characters or longer.")
+        if(password.length < 6 || password.length > 4096) {
+            setErrorMessage("Password must be 6 characters or longer.");
+            return;
         }
+
+        const registerResponse = await auth.register({email, password});
         
+        if(registerResponse instanceof Error) {
+            // Use toast notification for error handling.
+            toast.error(registerResponse.message);
+        } else {
+            toast.success("Account has been successfully created.");
+            navigate(routes.home);
+        }    
     }
 
     return (

@@ -1,35 +1,32 @@
-import { FirebaseError } from "firebase/app";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../AuthProvider";
 import Button from "../components/atoms/Button";
 import InputField from "../components/atoms/InputField";
 import Form from "../components/molecules/Form";
-import { auth } from "../services/firebase";
+import { routes } from "../constants";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    
+    const auth = useAuth();
+
     const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        try { 
-            // Login with filled in email and password, display success notifcation after.
-            await signInWithEmailAndPassword(auth, email, password).then(() => toast.success("Logged in successfully."));
-            navigate("/");
-        } catch (error: unknown) {
-            // Check if given error is a Firebase (in this case register) error, if so display error message. Otherwise throw an unknown error.
-            if (error instanceof FirebaseError) {                
-                // Use toast notification for error handling.
-                toast.error(error.message);
-            } else {
-                toast.error(`An unknown error occurred', ${error}`);
-
-            }
+        const loginResponse = await auth.login({email, password});
+        
+        if(loginResponse instanceof Error) {
+            // Use toast notification for error handling.
+            toast.error(loginResponse.message);
+        } else {
+            toast.success("Logged in successfully.");
+            navigate(routes.home);
         }
     }
+
+    
     return (
         <div className="flex min-h-screen items-center justify-center bg-secondary px-6">
             <div className="w-full max-w-md p-8 rounded-lg bg-white shadow-md">

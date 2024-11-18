@@ -1,34 +1,28 @@
-import { FirebaseError } from "firebase/app";
-import { sendPasswordResetEmail } from "firebase/auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../AuthProvider";
 import Button from "../components/atoms/Button";
 import InputField from "../components/atoms/InputField";
 import Form from "../components/molecules/Form";
-import { auth } from "../services/firebase";
+import { routes } from "../constants";
 
 const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
+    const auth = useAuth();
 
     const handleResetPassword = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        try {
-            await sendPasswordResetEmail(auth, email);
-            toast.success("Password reset email sent successfully!");
-            navigate("/login");
-        } catch (error: unknown) {
-            // Check if given error is a Firebase (in this case password reset) error, if so display error message. Otherwise throw an unknown error.
-            if (error instanceof FirebaseError) {                
-                // Use toast notification for error handling.
-                toast.error(error.message);
-            } else {
-                toast.error(`An unknown error occurred', ${error}`);
+        const resetPasswordResponse = await auth.resetPassword({email});
         
-            }
-        }
+        if(resetPasswordResponse instanceof Error) {
+            // Use toast notification for error handling.
+            toast.error(resetPasswordResponse.message);
+        } else {
+            toast.success("Password reset email sent successfully!");
+            navigate(routes.home);
+        }  
     };
 
     return (
