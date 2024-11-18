@@ -42,8 +42,6 @@ The project follows **Atomic Design Principles** for structuring components. As 
 
 - **Custom Error Messages:**
   - More user-friendly error messages from Firebase errors.
-- **Accessibility:**
-  - Improve accessibility with better ARIA roles and screen-reader support.
 
 ## Setup Instructions
 
